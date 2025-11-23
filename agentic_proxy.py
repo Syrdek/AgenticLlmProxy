@@ -13,7 +13,7 @@ from agentic_llm import stream
 app = flask.Flask("Agentic-Proxy")
 
 
-def sync_stream(request: dict[str, Any], timeout: int|None = None) -> Generator[dict[str, Any]]:
+def sync_stream(request: dict[str, Any], timeout: int|None = None) -> Generator[dict[str, Any], None, None]:
     """
     Converts the async llm stream method using callbacks to a sync generator method
     :param request: The request to perform.
@@ -34,7 +34,7 @@ def sync_stream(request: dict[str, Any], timeout: int|None = None) -> Generator[
     Thread(target=task, args=(), daemon=True).start()
 
     while True:
-        next_item = q.get(True)
+        next_item = q.get(True, timeout)
         if next_item is job_done:
             break
         yield json.dumps(next_item) + "\n"
