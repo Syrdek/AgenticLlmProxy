@@ -1,0 +1,7 @@
+langchain
+langchain-agent
+langchain-ollama
+langchain-mcp-adapters
+flask
+waitress
+requests

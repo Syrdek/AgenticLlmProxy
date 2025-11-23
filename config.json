@@ -1,0 +1,19 @@
+{
+  "llm": {
+    "provider": "ollama",
+    "url": "http://localhost:11434"
+  },
+
+  "proxy": {
+    "host": "0.0.0.0",
+    "port": 11435,
+    "debug": true
+  },
+
+  "agents": {
+    "filesystem": {
+      "transport": "sse",
+      "url": "http://localhost:48000/sse"
+    }
+  }
+}
