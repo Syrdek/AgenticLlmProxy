@@ -208,5 +208,8 @@ __marimo__/
 
 # Custom
 .resources
+
+# Pyinstaller
 build
 dist
+*.spec
